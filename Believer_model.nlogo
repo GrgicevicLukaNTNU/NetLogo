@@ -9,7 +9,7 @@ end
 to go
   tick
   set h_avg 0
-  ask turtles [let h heading set h_avg h_avg + h ask turtles in-radius 1 [set heading heading + 0.01 * (h - heading)]] ; simple rule : ask neighbours their heading and adjust yours accoringly
+  ask turtles [let h heading set h_avg h_avg + h ask turtles in-radius 1 [set heading heading + 0.01 * (h - heading)]] ; simple rule : ask neighbours their heading and adjust yours accoringly (0.01 could also be made global to be able to modify the effect of influence)
 end
 
 to belief
