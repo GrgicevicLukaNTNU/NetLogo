@@ -1,15 +1,15 @@
-globals [h_avg]
+globals [h_avg] ; an angle of the believer
 
 to setup
   clear-all
-  ask patches [sprout 1 [set size 1 set shape "line half" set heading random-normal 100 15]]
+  ask patches [sprout 1 [set size 1 set shape "line half" set heading random-normal 100 15]] ; randomly oriented arrows, you can change mean and standard deviation
   reset-ticks
 end
 
 to go
   tick
   set h_avg 0
-  ask turtles [let h heading set h_avg h_avg + h ask turtles in-radius 1 [set heading heading + 0.01 * (h - heading)]]
+  ask turtles [let h heading set h_avg h_avg + h ask turtles in-radius 1 [set heading heading + 0.01 * (h - heading)]] ; simple rule : ask neighbours their heading and adjust yours accoringly
 end
 
 to belief
